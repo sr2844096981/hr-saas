@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Promise } from 'core-js'
 import { Message } from 'element-ui'
-import { store } from '@/store'
+import store from '@/store'
 
 
 // create an axios instance
