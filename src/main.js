@@ -15,7 +15,18 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import Components from '@/components'
 
+
+// 自定义指令
+import * as directives from '@/directives'
+// 注册自定义指令 循环
+Object.keys(directives).forEach(key => {
+    Vue.directive(key, directives[key])
+})
+
+// 注册自定义组件
+Vue.use(Components)
 
 // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })
