@@ -1,5 +1,5 @@
 <template>
- <div class="upload-excel">
+  <div class="upload-excel">
     <div class="btn-upload">
       <el-button :loading="loading" size="mini" type="primary" @click="handleUpload">
         点击上传
@@ -12,10 +12,11 @@
       <span>将文件拖到此处</span>
     </div>
   </div>
-</template>>
+</template>
 
 <script>
 import XLSX from 'xlsx'
+
 export default {
   props: {
     beforeUpload: Function, // eslint-disable-line
@@ -46,6 +47,7 @@ export default {
         return
       }
       const rawFile = files[0] // only use files[0]
+
       if (!this.isExcel(rawFile)) {
         this.$message.error('Only supports upload .xlsx, .xls, .csv suffix files')
         return false
@@ -70,6 +72,7 @@ export default {
     },
     upload(rawFile) {
       this.$refs['excel-upload-input'].value = null // fix can't select the same excel
+
       if (!this.beforeUpload) {
         this.readerData(rawFile)
         return
